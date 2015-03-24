@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-ma-settings',
-    version='1.0',
+    version='1.0.3',
     packages=['ma_settings'],
     include_package_data=True,
     license='BSD License',  # example license
@@ -18,6 +18,7 @@ setup(
     url='https://github.com/MasterAlish/django-ma-settings',
     author='Alisher Alikulov',
     author_email='masteraalish@gmail.com',
+    keywords='django-settings',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
