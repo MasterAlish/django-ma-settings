@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-ma-settings',
-    version='1.0.4',
+    version='1.0.5',
     packages=['ma_settings'],
     include_package_data=True,
     license='BSD License',  # example license

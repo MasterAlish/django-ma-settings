@@ -11,7 +11,8 @@ class SettingTypes(object):
 
 
 class MasterSetting(models.Model):
-    name = models.CharField(max_length=255, verbose_name=_("Setting name"))
+    name = models.CharField(max_length=255, verbose_name=_("Name"))
+    display_name = models.CharField(max_length=255, verbose_name=_("Display name"))
     value = models.CharField(max_length=1000, verbose_name=_("Setting value"), null=True)
     type = models.CharField(max_length=10, verbose_name=_("Setting type"), choices=(
         (SettingTypes.INT, 'Integer'),

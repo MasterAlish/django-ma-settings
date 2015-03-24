@@ -33,6 +33,7 @@ template:
     MASTER_SETTINGS = {
         '(setting_name)':{
             'type' : '(setting_type)',
+            'display_name': '(displayed name)', #optional
             'default': (default value), # optional
             'options': (choice options), # optional
             'model': (foreign model), # optional, use only when foreign type is chosen
@@ -44,21 +45,25 @@ example:
 .. code-block:: python
 
     MASTER_SETTINGS = {
-        'Max email size (kb)': {
+        'max_email_size_kb': {
             'type': 'integer',
+            'display_name': 'Max email size(kb)',
             'default': 400,
         },
-        'Text color': {
+        'text_color': {
             'type': 'choices',
+            'display_name': 'Text color',
             'options': ['White', 'Black', 'Red', 'Blue'],
             'default': 'White',
         },
-        'Our rate': {
+        'our_rate': {
             'type': 'float',
+            'display_name': 'Our rate',
             'default': 1.0,
         },
-        'Email from': {
+        'email_from': {
             'type': 'string'
+            'display_name': 'Email from',
         },
         'Default client': {
             'type': 'foreign',
@@ -66,15 +71,13 @@ example:
         }
     }
 
-
 4. define BASE_SETTINGS_TEMPLATE_NAME
 
 .. code-block:: python
 
     BASE_SETTINGS_TEMPLATE_NAME = "template_name.html"
 
-Template file must contain empty {% block settings %}
-
+    #  Template file must contain empty {% block settings %}
 
 5. in urls.py add include('ma_settings.urls')
 
@@ -82,7 +85,9 @@ Template file must contain empty {% block settings %}
 
     url(r'^settings/', include('ma_settings.urls')),
 
-Use url name 'master_settings_home' to access settings page
+    #  Use url name 'master_settings_home' to access settings page
+
+    {% url 'master_settings_home' %}
 
 6. Run commands to initialize settings
 
@@ -101,19 +106,19 @@ To get setting use
 .. code-block:: python
 
     from ma_settings import master_settings
-    master_settings.get('setting name', default='default')
+    master_settings.get('setting_name', default='default')
 
 To set new value:
 
 .. code-block:: python
 
-    master_settings.set('setting name', [value|model_instance])
+    master_settings.set('setting_name', [value|model_instance])
 
 To check if setting exists:
 
 .. code-block:: python
 
-    master_settings.exists('setting name')
+    master_settings.exists('setting_name')
 
 
 Updating settings definition

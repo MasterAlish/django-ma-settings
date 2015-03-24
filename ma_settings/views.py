@@ -16,22 +16,22 @@ class SettingsForm(forms.Form):
         self.settings = settings
         for setting in settings:
             if setting.type == SettingTypes.STRING:
-                self.fields[self.field(setting)] = fields.CharField(label=setting.name, initial=setting.value)
+                self.fields[self.field(setting)] = fields.CharField(label=setting.display_name, initial=setting.value)
             elif setting.type == SettingTypes.INT:
-                self.fields[self.field(setting)] = fields.IntegerField(label=setting.name, initial=setting.value)
+                self.fields[self.field(setting)] = fields.IntegerField(label=setting.display_name, initial=setting.value)
             elif setting.type == SettingTypes.FLOAT:
-                self.fields[self.field(setting)] = fields.CharField(label=setting.name, widget=fields.NumberInput(),
+                self.fields[self.field(setting)] = fields.CharField(label=setting.display_name, widget=fields.NumberInput(),
                                                                     initial=setting.value)
             elif setting.type == SettingTypes.FOREIGN:
                 model = get_model(*setting.foreign_model.split("."))
-                self.fields[self.field(setting)] = ModelChoiceField(label=setting.name, queryset=model.objects.all(),
+                self.fields[self.field(setting)] = ModelChoiceField(label=setting.display_name, queryset=model.objects.all(),
                                                                     initial=setting.value)
             elif setting.type == SettingTypes.CHOICES:
                 options = settings_py.MASTER_SETTINGS[setting.name]['options']
                 choices = []
                 for option in options:
                     choices.append((option, option))
-                self.fields[self.field(setting)] = fields.ChoiceField(label=setting.name, choices=choices,
+                self.fields[self.field(setting)] = fields.ChoiceField(label=setting.display_name, choices=choices,
                                                                       initial=setting.value)
 
     def field(self, setting):
