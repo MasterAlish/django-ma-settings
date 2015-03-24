@@ -72,8 +72,9 @@ class MasterSettingManager(object):
                 self.delete_setting(existing_setting.name)
 
     def update_rest_fields(self, setting_def, setting_name):
-        new_setting = MasterSetting(name=setting_name)
+        setting = MasterSetting(name=setting_name)
         if 'display_name' in setting_def:
-            new_setting.display_name = str(setting_def['display_name'])
+            setting.display_name = str(setting_def['display_name'])
         else:
-            new_setting.display_name = str(setting_name)
+            setting.display_name = str(setting_name)
+        setting.save()
