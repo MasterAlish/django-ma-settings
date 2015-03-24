@@ -1,23 +1,34 @@
-===============
-Master Settings
-===============
+django-ma-settings
+==================
 
-Master Settings is a simple Django app to have simple typed settings in django app.
+Master Settings is a simple Django app to have simple typed settings in django app with type validation.
 
 
-Installation
-------------
-
-pip install ma-settings
-
-in settings.py file:
+Installation & Setup
 --------------------
 
-1. add 'ma-settings' into INSTALLED_APPS
+1. Install using pip
 
-2. define MASTER_SETTINGS dict with your settings definition
+.. code-block:: bash
+
+    $> pip install ma-settings
+
+
+2. add 'ma-settings' into INSTALLED_APPS
+
+.. code-block:: python
+
+    INSTALLED_APPS = (
+        # ...
+        'ma_settings',
+        # ...
+    )
+
+3. define MASTER_SETTINGS dict with your settings definition
 
 template:
+
+.. code-block:: python
 
     MASTER_SETTINGS = {
         '(setting_name)':{
@@ -29,6 +40,8 @@ template:
     }
 
 example:
+
+.. code-block:: python
 
     MASTER_SETTINGS = {
         'Max email size (kb)': {
@@ -53,25 +66,30 @@ example:
         }
     }
 
-3. define BASE_SETTINGS_TEMPLATE_NAME
 
-BASE_SETTINGS_TEMPLATE_NAME = "template_name.html"
+4. define BASE_SETTINGS_TEMPLATE_NAME
+
+.. code-block:: python
+
+    BASE_SETTINGS_TEMPLATE_NAME = "template_name.html"
 
 Template file must contain empty {% block settings %}
 
 
-in urls.py add include('ma_settings.urls')
-------------------------------------------
+5. in urls.py add include('ma_settings.urls')
 
-url(r'^settings/', include('ma_settings.urls')),
+.. code-block:: python
+
+    url(r'^settings/', include('ma_settings.urls')),
 
 Use url name 'master_settings_home' to access settings page
 
-run commands
-------------
+6. Run commands to initialize settings
 
-    python manage.py syncdb
-    python manage.py init_settings
+.. code-block:: bash
+
+    $> python manage.py syncdb
+    $> python manage.py init_settings
 
 
 
@@ -80,17 +98,29 @@ Using
 
 To get setting use
 
-     from ma_settings import master_settings
-     master_settings.get('setting name', default='default')
+.. code-block:: python
+
+    from ma_settings import master_settings
+    master_settings.get('setting name', default='default')
 
 To set new value:
+
+.. code-block:: python
 
     master_settings.set('setting name', [value|model_instance])
 
 To check if setting exists:
 
+.. code-block:: python
+
     master_settings.exists('setting name')
 
+
+Updating settings definition
+----------------------------
+
 After updating settings definition in settings.py run this command to update settings
+
+.. code-block:: bash
 
      python manage.py init_settings
