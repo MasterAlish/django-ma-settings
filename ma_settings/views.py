@@ -18,8 +18,7 @@ class SettingsForm(forms.Form):
             if setting.type == SettingTypes.STRING:
                 self.fields[self.field(setting)] = fields.CharField(label=setting.name, initial=setting.value)
             elif setting.type == SettingTypes.INT:
-                self.fields[self.field(setting)] = fields.CharField(label=setting.name, widget=fields.IntegerField(),
-                                                                    initial=setting.value)
+                self.fields[self.field(setting)] = fields.IntegerField(label=setting.name, initial=setting.value)
             elif setting.type == SettingTypes.FLOAT:
                 self.fields[self.field(setting)] = fields.CharField(label=setting.name, widget=fields.NumberInput(),
                                                                     initial=setting.value)
