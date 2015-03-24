@@ -108,7 +108,7 @@
       <file leaf-file-name="init_settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ma_settings/management/commands/init_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="13" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.0" vertical-offset="672" max-vertical-offset="1290">
+            <state line="75" column="41" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.0" vertical-offset="672" max-vertical-offset="1290">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -511,7 +511,11 @@
       <created>1427183865150</created>
       <updated>1427183865150</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix display name #2">
+      <created>1427184258931</created>
+      <updated>1427184258931</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,7 +561,8 @@
     <MESSAGE value="fix Integer Field" />
     <MESSAGE value="Add display name" />
     <MESSAGE value="Fix display name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix display name" />
+    <MESSAGE value="Fix display name #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix display name #2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -628,7 +633,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ma_settings/management/commands/init_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="13" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.0" vertical-offset="672" max-vertical-offset="1290">
+        <state line="75" column="41" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.0" vertical-offset="672" max-vertical-offset="1290">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
