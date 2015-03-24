@@ -11,7 +11,7 @@ Installation & Setup
 
 .. code-block:: bash
 
-    $> pip install ma-settings
+    $> pip install django-ma-settings
 
 
 2. add 'ma-settings' into INSTALLED_APPS
