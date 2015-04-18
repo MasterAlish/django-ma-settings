@@ -66,12 +66,14 @@ class HomeView(TemplateView):
         return context
 
     def dispatch(self, request, *args, **kwargs):
-        all_settings = MasterSetting.objects.all()
-        if request.method == 'POST':
-            self.form = SettingsForm(all_settings, request.POST)
-            if self.form.is_valid():
-                self.form.save()
-            return render(request, self.template_name, self.get_context_data(**kwargs))
-        else:
-            self.form = SettingsForm(all_settings)
-            return render(request, self.template_name, self.get_context_data(**kwargs))
+        if request.user.is_superuser:
+            all_settings = MasterSetting.objects.all()
+            if request.method == 'POST':
+                self.form = SettingsForm(all_settings, request.POST)
+                if self.form.is_valid():
+                    self.form.save()
+                return render(request, self.template_name, self.get_context_data(**kwargs))
+            else:
+                self.form = SettingsForm(all_settings)
+                return render(request, self.template_name, self.get_context_data(**kwargs))
+        raise Exception("Only admin can modify settings")
